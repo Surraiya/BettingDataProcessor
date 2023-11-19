@@ -51,7 +51,7 @@ public class TestOutputResult extends BaseTest{
         for (Player player : legitimatePlayers) {
             totalBets = player.getTotalBets();
             winningGame = player.getTotalWinGame();
-            winRate = player.getWinrate();
+            winRate = player.getWinRate();
         }
 
         Assert.assertEquals(totalBets, 7, "Player should place 7 bets");

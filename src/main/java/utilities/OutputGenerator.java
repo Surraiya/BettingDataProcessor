@@ -61,7 +61,7 @@ public class OutputGenerator {
                             try {
                                 UUID playerId = player.getPlayerId();
                                 long balance = player.getAccountBalance();
-                                BigDecimal winRate = player.getWinrate();
+                                BigDecimal winRate = player.getWinRate();
 
                                 writer.write(String.format("%s %d %.2f%n", playerId, balance, winRate));
                             } catch (IOException e) {

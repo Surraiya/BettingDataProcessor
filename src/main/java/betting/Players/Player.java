@@ -51,7 +51,7 @@ public class Player {
         }
     }
 
-    public BigDecimal getWinrate(){
+    public BigDecimal getWinRate(){
         BigDecimal winGames = BigDecimal.valueOf(totalWinGame);
         BigDecimal bets = BigDecimal.valueOf(totalBets);
 

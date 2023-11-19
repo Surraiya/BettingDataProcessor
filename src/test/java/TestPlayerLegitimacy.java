@@ -14,9 +14,15 @@ public class TestPlayerLegitimacy extends BaseTest{
     @Test
     public void testLegitimatePlayer() {
         List<Player> legitimatePlayers = PlayerManager.getLegitimatePlayers();
+        String legitimatePlayerId = null;
+        logger.info("legitimate players"+legitimatePlayers);
         logger.info("There should be only one legitimate player");
-        Assert.assertTrue(legitimatePlayers.contains(UUID.fromString("163f23ed-e9a9-4e54-a5b1-4e1fc86f12f4")), "The given player should be the legitimate player");
-        Assert.assertFalse(legitimatePlayers.contains(UUID.fromString("4925ac98-833b-454b-9342-13ed3dfd3ccf")), "The given player should not be the legitimate player");
+        Assert.assertEquals(legitimatePlayers.size(), 1, "Length should be 1");
+        for(Player player: legitimatePlayers){
+            legitimatePlayerId = player.getPlayerId().toString();
+        }
+        Assert.assertEquals(legitimatePlayerId, "163f23ed-e9a9-4e54-a5b1-4e1fc86f12f4", "The given player should be the legitimate player");
+        Assert.assertNotEquals(legitimatePlayerId, "4925ac98-833b-454b-9342-13ed3dfd3ccf", "The given player should not be the legitimate player");
     }
 
     @Test
