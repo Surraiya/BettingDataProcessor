@@ -1,13 +1,19 @@
+import betting.BettingProcessor;
 import betting.Players.InputPlayerAction;
 import betting.Players.Player;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+
+import java.util.logging.Logger;
 
 import static betting.Players.PlayerManager.createPlayer;
 import static betting.Players.PlayerManager.processPlayerActionData;
 
-public class TestPlayer1Actions extends BaseTest{
+public class TestPlayer1Actions {
+    private static final Logger logger = Logger.getLogger(TestPlayer1Actions.class.getName());
+
     String playerAction1 = "163f23ed-e9a9-4e54-a5b1-4e1fc86f12f4,DEPOSIT,,4000,";
     String playerAction2 = "163f23ed-e9a9-4e54-a5b1-4e1fc86f12f4,BET,abae2255-4255-4304-8589-737cdff61640,500,A";
     String playerAction3 = "163f23ed-e9a9-4e54-a5b1-4e1fc86f12f4,BET,a3815c17-9def-4034-a21f-65369f6d4a56,200,A";
@@ -19,12 +25,20 @@ public class TestPlayer1Actions extends BaseTest{
     String playerAction9 = "163f23ed-e9a9-4e54-a5b1-4e1fc86f12f4,WITHDRAW,,1000,";
     String playerAction10 = "163f23ed-e9a9-4e54-a5b1-4e1fc86f12f4,BET,d6c8b5a4-31ce-4bf8-8511-206cfd693440,50,A";
 
+    @BeforeClass
+    public void saveMatchInfo() {
+        BettingProcessor bettingProcessor = new BettingProcessor();
+        bettingProcessor.processMatchDataFile("src/main/resources/match_data.txt");
+    }
+
 
     @Test
     public void testPlayerAction1() {
+
         //1. deposit
         InputPlayerAction inputPlayerAction = processPlayerActionData(playerAction1);
         Player player = createPlayer(inputPlayerAction.getPlayerId());
+
         logger.info("Account balance after deposit: " + player.getAccountBalance());
         Assert.assertEquals(player.getAccountBalance(), 4000, "Account balance should be 4000");
 
