@@ -114,28 +114,10 @@ Casino Balance:
 - Java Development Kit (JDK) 8 or higher
 - Maven
 
-### Build and Run
-1. **Clone the Repository:**
+**Clone the Repository:**
 ```bash
 git clone https://github.com/Surraiya/BettingDataProcessor.git
 ```
-
-2. **Navigate to the Project Directory:**
-```bash
-cd BettingDataProcessor
-```
-
-3. **Build the Project:**
-Execute the following Maven command to clean, compile, and package the project:
-```bash
-mvn clean install
-```
-
-4. **Run the Application:**
-```bash
-java -jar target/BettingDataProcessor-1.0-SNAPSHOT.jar
-```
-
 
 ## Technologies Used
 - [Java](https://www.java.com/)
