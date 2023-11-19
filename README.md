@@ -116,10 +116,10 @@ Casino Balance:
 
 ### Build and Run
 1. **Clone the Repository:**
+```bash
+git clone https://github.com/Surraiya/BettingDataProcessor.git
+```
 
-   ```bash
-   git clone https://github.com/Surraiya/BettingDataProcessor.git
-    ```
 2. **Navigate to the Project Directory:**
 ```bash
 cd BettingDataProcessor
